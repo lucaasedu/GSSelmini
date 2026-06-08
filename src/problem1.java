@@ -13,10 +13,12 @@ public class problem1 {
         int dtsaida = 0, dtchegada = 0;
 
         while (rotaEscolhida < 1 || rotaEscolhida > 3) {
-            System.out.println("=== SELECIONE A SUA ROTA DE NAVEGAÇÃO ===");
-            System.out.println("1 - Rota 1 (P1 até C1)");
-            System.out.println("2 - Rota 2 (P2 até C2)");
-            System.out.println("3 - Rota 3 (P3 até C3 - Caminho Complexo)");
+            System.out.println("Olá! Somos a Sidon e estamos aqui para assegurar uma rota mais eficiente, garantindo êxito no envio de cargas.");
+            System.out.println("");
+            System.out.println("Por favor, digite a rota desejada");
+            System.out.println("1 para Rota 1 (P1 até C1)");
+            System.out.println("2 para Rota 2 (P2 até C2)");
+            System.out.println("3 para Rota 3 (P3 até C3 - Caminho Complexo)");
             System.out.print("Digite a opção (1-3): ");
             rotaEscolhida = sc.nextInt();
             sc.nextLine();
@@ -34,25 +36,25 @@ public class problem1 {
         if (rotaEscolhida == 1) {
             x = 12; y = 1;              // Partida P1
             destinoX = 1; destinoY = 1; // Chegada C1
-            System.out.println("\n[Rota 1 Ativada]: Destino C1. Use: Esquerda 11");
+            System.out.println("\n[Rota 1 Ativada]: Destino C1.");
         } else if (rotaEscolhida == 2) {
             x = 9; y = 2;               // Partida P2
             destinoX = 4; destinoY = 9; // Chegada C2
-            System.out.println("\n[Rota 2 Ativada]: Destino C2. Siga as curvas!");
+            System.out.println("\n[Rota 2 Ativada]: Destino C2.");
         } else if (rotaEscolhida == 3) {
             x = 3; y = 4;               // Partida P3
             destinoX = 12; destinoY = 11; // Chegada C3 (Após subir as últimas duas casas)
-            System.out.println("\n[Rota 3 Ativada]: Destino C3. Siga a sequência de curvas longas!");
+            System.out.println("\n[Rota 3 Ativada]: Destino C3.");
         }
 
         // LAÇO PRINCIPAL PARA RECEBER COMANDOS ATÉ O USUÁRIO DIGITAR SAIR
         do {
-            System.out.println("\nPosição Atual: X = " + x + ", Y = " + y);
+            System.out.println("\nPosição Atual das Coordenadas: X = " + x + ", Y = " + y);
             System.out.println("Digite um dos comandos abaixo: \n Frente - [Subir] \n Tras - [Descer] \n Esquerda - [Esquerda] \n Direita - [Direita] \n Sair [Encerrar]");
             comando = sc.nextLine();
 
             if (comando.equalsIgnoreCase("SAIR")) {
-                System.out.println("ok");
+                System.out.println("Rota interrompida");
             } else {
 
                 if (comando.equalsIgnoreCase("FRENTE")
@@ -60,7 +62,7 @@ public class problem1 {
                         || comando.equalsIgnoreCase("ESQUERDA")
                         || comando.equalsIgnoreCase("DIREITA")) {
 
-                    System.out.println("Digite a distancia que deseja percorrer no labirinto! Exemplo: 5 ");
+                    System.out.println("Informe a distância em números que deseja avançar! ");
                     distancia = sc.nextInt();
                     sc.nextLine();
 
@@ -131,20 +133,18 @@ public class problem1 {
 
                             if (x == destinoX && y == destinoY) {
 
-                                System.out.println("\n=================================");
-                                System.out.println("PARABÉNS! Você chegou ao destino");
-                                System.out.println(distancia);
-                                System.out.println(kilometragem);
-                                System.out.println(dtsaida);
-                                System.out.println("=================================");
+                                System.out.println("PARABÉNS! Você finalizou a rota e chegou até o porto!");
+                                System.out.println("Foram " + distancia + " dias para chegar ao seu destino" + "(" + rotaEscolhida + ")");
+                                System.out.println("Esta rota tem cerca de " + kilometragem + " km.");
+                                System.out.println("Segundo a probabilidade, a previsão de chegada está para o dia " + dtsaida + ".");
                                 break;
                             }
                         } else {
-                            System.out.println("COMANDO INVÁLIDO (Você bateu em uma parede do circuito!)");
+                            System.out.println("Este trajeto está fora da rota definida. ");
                         }
                     }
                 } else {
-                    System.out.println("COMANDO INVÁLIDO");
+                    System.out.println("Este trajeto está fora da rota definida.");
                 }
             }
         } while (!comando.equalsIgnoreCase("SAIR"));
